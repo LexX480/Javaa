@@ -39,7 +39,7 @@ export const product = [
   },
   {
     "id": 3,
-    "title": "Samsung Universe 9",
+    "title": "Samsung",
     "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
     "price": 1249,
     "discountPercentage": 15.46,
