@@ -1,5 +1,6 @@
 import React from 'react'
 import { product } from './dummy/product'
+import Function from './Function'
 
 
 
@@ -11,7 +12,7 @@ const App = () => {
 
   return (
 
-    <div className=' p-2 '>
+    <div className=' p-2 bg-slate-500 flex justify-center'>
 
 
 
@@ -55,6 +56,8 @@ const App = () => {
 
             <p> Brand: {product.brand}</p> */}
 
+
+      <Function />
 
     </div>
 
