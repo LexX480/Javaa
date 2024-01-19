@@ -1,6 +1,11 @@
 import React from 'react'
 import { product } from './dummy/product'
 import Function from './Function'
+import Event from './Event'
+import Header from './components/Header'
+import DisplaySection from './pages/HomePage/DisplaySection'
+import Body from './components/Body'
+import Footer from './components/Footer'
 
 
 
@@ -8,15 +13,21 @@ import Function from './Function'
 
 const App = () => {
 
-
+  // const persons = [
+  //   { id: 1, gender: 'male', name: 'ram' },
+  //   { id: 2, gender: 'female', name: 'sita' },
+  //   { id: 3, gender: 'male', name: 'shyam' },
+  // ];
+  // const aa = persons.find(({ gender }) => gender == "male");
+  // console.log(aa);
 
   return (
 
-    <div className=' p-2 bg-slate-500 flex justify-center'>
+    <div>
 
 
 
-      <table className='border-black border-2'>
+      {/* <table className='border-black border-2'>
         <thead className='bg-slate-600'>
           <tr>
             <th>ID</th>
@@ -45,7 +56,7 @@ const App = () => {
 
         </tbody>
 
-      </table>
+      </table> */}
 
       {/* <h1 className='font-bold'>{product.title}</h1>
             <img src={product.thumbnail} className='w-full h-[250px]' alt="" />
@@ -57,7 +68,12 @@ const App = () => {
             <p> Brand: {product.brand}</p> */}
 
 
-      <Function />
+
+
+      <Header />
+      <DisplaySection />
+      <Body />
+      <Footer />
 
     </div>
 
