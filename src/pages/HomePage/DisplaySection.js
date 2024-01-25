@@ -2,8 +2,8 @@ import React from 'react'
 
 const DisplaySection = () => {
   return (
-    <div className='grid grid-cols-2 items-center'>
-      <div className='h-[600px]'>
+    <div className='grid grid-cols-2 items-center md:grid-cols-1'>
+      <div className='h-[600px] '>
         <dotlottie-player src="https://lottie.host/fdcd7df3-0c72-43f0-8346-12bebd56c714/JwyRbDNvNA.json" background="transparent" speed="1" loop autoplay></dotlottie-player>
       </div>
 
