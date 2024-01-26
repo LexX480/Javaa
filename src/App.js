@@ -1,9 +1,24 @@
 import React from 'react'
+import { Route, Routes } from 'react-router'
+import HomePg from './re-page/HomePg'
+import About from './re-page/About'
+import Contact from './re-page/Contact'
+import NotFound from './re-page/NotFound'
 
 const App = () => {
   return (
     <div>
-      <h1>hello</h1>
+
+      <Routes>
+        <Route path='/' element={<HomePg />} />
+        <Route path='About' element={<About />} />
+        <Route path='Contact' element={<Contact />} />
+        <Route path='*' element={<NotFound />} />
+
+
+
+      </Routes>
+
     </div>
   )
 }
