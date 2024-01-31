@@ -6,9 +6,10 @@ import {
     Button,
     Typography,
   } from "@material-tailwind/react";
+  
 const SignIn = () => {
   return (
-    
+    <div className='px-5'>
       <Card color="transparent" shadow={false}>
       <Typography variant="h4" color="blue-gray">
         Sign Up
@@ -82,7 +83,7 @@ const SignIn = () => {
         </Typography>
       </form>
     </Card>
-    
+    </div>
   )
 }
 
