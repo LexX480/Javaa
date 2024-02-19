@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { Input, Button } from "@material-tailwind/react";
+import { Input, Button, Textarea, Select, Option, Checkbox } from "@material-tailwind/react";
 import { useFormik } from 'formik';
+import { Radio } from "@material-tailwind/react";
 
 const UserForm = () => {
 
@@ -9,12 +10,28 @@ const UserForm = () => {
 const formik = useFormik({
   initialValues: {
     email: '',
-    username: ''
+    username: '',
+    subject: '',
+      habits: [],
+      country: '',
+      msg: ''
   },
   onSubmit: (val) => {
     console.log(val);
   }
 });
+
+const programes = [
+  { label: 'HTML', value: 'html', color: 'red' },
+  { label: 'React', value: 'react', color: 'blue' },
+];
+const habits = [
+  { label: 'Dance', value: 'dance', color: 'red' },
+  { label: 'Sing', value: 'sing', color: 'blue' },
+  { label: 'Read', value: 'read', color: 'green' },
+];
+
+
 
   return (
     <div className='p-5'>
@@ -45,6 +62,46 @@ const formik = useFormik({
             label="Username"
             name='username'
           />
+
+<div className="rads">
+            <h1>Choose Fav Subjects</h1>
+            <div className="flex gap-5">
+
+              {programes.map((p, i) => {
+                return <Radio key={i}
+                  name="subject"
+                  onChange={formik.handleChange}
+                  label={p.label} value={p.value} color={p.color} />;
+              })}
+
+            </div>
+          </div>
+
+          <div className="habs">
+            <h1>Your Habits</h1>
+            <div className="flex gap-5">
+
+              {habits.map((p, i) => {
+                return <Checkbox key={i}
+                  name="habits"
+                  onChange={formik.handleChange}
+                  label={p.label} value={p.value} color={p.color} />;
+              })}
+
+            </div>
+          </div>
+
+          <div className="flex w-72 flex-col gap-6">
+            <Select size="md" label="Select Country" name='country' onChange={(e) => formik.setFieldValue('country', e)} >
+              <Option value='nepal'>Nepal</Option>
+              <Option value='india'>India</Option>
+              <Option value='china'>China</Option>
+            </Select>
+          </div>
+
+          <div className="w-96">
+            <Textarea label="Message" name='msg' value={formik.values.msg} onChange={formik.handleChange} />
+          </div>
          
           <Button type='submit' size='sm'>Submit</Button>
 
