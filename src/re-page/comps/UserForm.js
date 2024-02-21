@@ -1,53 +1,59 @@
 import React, { useState } from 'react'
-import { Input, Button, Textarea, Select, Option, Checkbox } from "@material-tailwind/react";
+import { Input, Button, Checkbox, Option, Select, Textarea } from "@material-tailwind/react";
 import { useFormik } from 'formik';
+import { useNavigate } from 'react-router';
 import { Radio } from "@material-tailwind/react";
 
 const UserForm = () => {
 
   const [count, setCount] = useState(0);
 
-const formik = useFormik({
-  initialValues: {
-    email: '',
-    username: '',
-    subject: '',
+  const [data, setData] = useState([]);
+  // const nav = useNavigate(); (to nav to different page)
+
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      username: '',
+      subject: '',
       habits: [],
       country: '',
       msg: ''
-  },
-  onSubmit: (val) => {
-    console.log(val);
-  }
-});
+    },
 
-const programes = [
-  { label: 'HTML', value: 'html', color: 'red' },
-  { label: 'React', value: 'react', color: 'blue' },
-];
-const habits = [
-  { label: 'Dance', value: 'dance', color: 'red' },
-  { label: 'Sing', value: 'sing', color: 'blue' },
-  { label: 'Read', value: 'read', color: 'green' },
-];
+    onSubmit: (val, { resetForm }) => {
+      setData((prev) => [...prev, val]);
+      resetForm();
+      // nav();
+    }
+  });
 
-
+  const programes = [
+    { label: 'HTML', value: 'html', color: 'red' },
+    { label: 'React', value: 'react', color: 'blue' },
+  ];
+  const habits = [
+    { label: 'Dance', value: 'dance', color: 'red' },
+    { label: 'Sing', value: 'sing', color: 'blue' },
+    { label: 'Read', value: 'read', color: 'green' },
+  ];
 
   return (
     <div className='p-5'>
-<div className='space-x-3'>
-         <h1>{count}</h1>
+      <div className='space-x-3'>
+        <h1>{count}</h1>
 
-      <button onClick={() => {
-        setCount((prev) => prev + 1);
-      }}>Add </button>
+        <button onClick={() => {
+          setCount((prev) => prev + 1);
+        }}>Add </button>
 
-<button onClick={() => {
-        setCount((after) => after - 1);
-      }}>decrease</button>
-</div>
+        <button onClick={() => {
+          setCount((after) => after - 1);
+        }}>decrease</button>
+      </div>
 
-        <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={formik.handleSubmit}>
         <div className="p-5 w-72 space-y-5">
           <Input
             label="Email"
@@ -63,7 +69,7 @@ const habits = [
             name='username'
           />
 
-<div className="rads">
+          <div className="rads">
             <h1>Choose Fav Subjects</h1>
             <div className="flex gap-5">
 
@@ -90,7 +96,6 @@ const habits = [
 
             </div>
           </div>
-
           <div className="flex w-72 flex-col gap-6">
             <Select size="md" label="Select Country" name='country' onChange={(e) => formik.setFieldValue('country', e)} >
               <Option value='nepal'>Nepal</Option>
@@ -99,15 +104,29 @@ const habits = [
             </Select>
           </div>
 
+
+
           <div className="w-96">
             <Textarea label="Message" name='msg' value={formik.values.msg} onChange={formik.handleChange} />
           </div>
-         
+
+
+
           <Button type='submit' size='sm'>Submit</Button>
 
+        </div>
+      </form>
+      <div className="users mt-4 space-y-5">
+        {data.map((user, i) => {
+          return <div key={i} className='shadow-lg'>
+            <h1>{user.email}</h1>
+            <p>{user.username}</p>
+            <button>Remove</button>
           </div>
-          </form>
-          </div>
+        })}
+      </div>
+    </div>
+
   )
 }
 
