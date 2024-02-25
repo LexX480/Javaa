@@ -14,8 +14,8 @@ const App = () => {
     <div>
       <Header />
       <Routes>
-        <Route element={<RootLayout/>} />
-                <Route path='/' element={<HomePg />} />
+        <Route element={<RootLayout />} />
+        <Route path='/' element={<HomePg />} />
         <Route path='About' element={<About />} />
         <Route path='Contact' element={<Contact />} />
         <Route path='SignIn' element={<SignIn />} />
