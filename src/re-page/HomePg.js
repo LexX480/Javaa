@@ -2,35 +2,27 @@ import React, { useEffect, useState } from 'react'
 
 import axios from 'axios';
 import { api_key, getPopular, imageUrl } from '../components/constant';
+import { useApi } from '../apis/Hooks/ApiHooks';
 
 
 
 const HomePg = () => {
 
-  const [data, setData] = useState(null);
-  const [err, setErr] = useState('');
+
+  const [page, setPage] = useState(1);
+
+  const [data, load, err] = useApi(getPopular, page);
 
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(getPopular, {
-        params: {
-          api_key: api_key
-        }
-      });
-      setData(response.data.results);
-    }
-    catch (err) {
-      setErr(err.message);
-    }
+
+
+
+  if (load) {
+    return <h1>Loading...</h1>
   }
 
-  useEffect(() => {
-    fetchData();
-  }, []);
 
 
-  console.log(data)
 
   // axios.get('https://api.themoviedb.org/3/movie/popular',
   //   {
@@ -45,11 +37,19 @@ const HomePg = () => {
 
   return (
     <div>
+      <div className="pages space-x-3">
+        <button onClick={() => setPage((prev) => prev + 1)}>Pagee</button>
+        <button onClick={() => setPage((prev) => {
+          if (prev > 1) {
+            return prev - 1;
+          }
 
+        })}>decc</button>
+      </div>
       {data && data.map((movie) => {
         return <div key={movie.id}>
           <h1>{movie.title}</h1>
-          <h2>{movie.release_date}</h2>
+
           <img src={`${imageUrl}${movie.poster_path}`} alt="" />
         </div>
       })}
