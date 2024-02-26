@@ -1,73 +1,52 @@
-import React, { useEffect, useState } from 'react'
-
 import axios from 'axios';
-import { api_key, getPopular, imageUrl } from '../components/constant';
-import { useApi } from '../apis/Hooks/ApiHooks';
+import React, { useEffect, useState } from 'react'
+import Detail from '../apis/Detail';
+
+const HomePage = () => {
 
 
+  const [movieData, setData] = useState(null);
+  const [isLoad, setLoad] = useState(false);
+  const [isErr, setErr] = useState(false);
+  const [id, setId] = useState();
 
-const HomePg = () => {
+  const getMovie = async () => {
+    try {
+      const response = await axios.get('http://www.omdbapi.com', {
+        params: {
+          'apikey': '6905a701',
+          's': 'movie'
+        }
+      });
+      setData(response.data.Search);
+    } catch (err) {
 
-
-  const [page, setPage] = useState(1);
-
-  const [data, load, err] = useApi(getPopular, page);
-
-
-
-
-
-  if (load) {
-    return <h1>Loading...</h1>
+    }
   }
 
 
+  useEffect(() => {
+    getMovie();
+  }, [])
 
 
-  // axios.get('https://api.themoviedb.org/3/movie/popular',
-  //   {
-  //     params: {
-  //       'api_key': '92c1e33f015755d27a231793c44ecfed'
-  //     }
-  //   }).then((res) => {
-  //     console.log(res.data)
-  //   }).catch((err) => {
 
-  //   })
 
   return (
-    <div>
-      <div className="pages space-x-3">
-        <button onClick={() => setPage((prev) => prev + 1)}>Pagee</button>
-        <button onClick={() => setPage((prev) => {
-          if (prev > 1) {
-            return prev - 1;
-          }
-
-        })}>decc</button>
+    <div className='grid grid-cols-2'>
+      <div>
+        {movieData && movieData.map((movie) => {
+          return <div key={movie.imdbID}>
+            <h1>{movie.Title}</h1>
+            <img onClick={() => setId(movie.imdbID)} className='cursor-pointer h-8 w-8' src={movie.Poster} alt="" />
+          </div>
+        })}
       </div>
-      {data && data.map((movie) => {
-        return <div key={movie.id}>
-          <h1>{movie.title}</h1>
-
-          <img src={`${imageUrl}${movie.poster_path}`} alt="" />
-        </div>
-      })}
-
-
-      {/* {artists.result.artists.hits.map((data, i) => {
-        return <div key={i}>
-          <img src={data.artist.avatar} alt="" />
-
-
-        </div>
-      })} */}
-
-
-
+      <div>
+        <Detail id={id} setId={setId} />
+      </div>
     </div>
-
   )
 }
 
-export default HomePg
+export default HomePage
