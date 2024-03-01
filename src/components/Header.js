@@ -24,6 +24,7 @@ const Header = () => {
         <NavLink to='/SignIn'>Sign In</NavLink>
       </nav>
     </div>
+
   )
 }
 
