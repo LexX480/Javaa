@@ -26,14 +26,9 @@ const ItemsPage = () => {
   }
 
 
-
-
   useEffect(() => {
     getCategories();
   }, []);
-
-
-
 
 
   return (
