@@ -1,36 +1,10 @@
-import React, { useState } from 'react'
-import { useApi } from '../apis/Hooks/ApiHooks';
-import { getTopRated, imageUrl } from '../components/constant';
+import React from 'react'
 
 const About = () => {
-
-  const [page, setPage] = useState(1);
-
-  const [data, load, err] = useApi(getTopRated, page);
-
-  if (load) {
-    return <h1>Loading...</h1>
-  }
   return (
-
     <div>
-      <div className="pages space-x-3">
-        <button onClick={() => setPage((prev) => prev + 1)}>Pagee</button>
-        <button onClick={() => setPage((prev) => {
-          if (prev > 1) {
-            return prev - 1;
-          }
-
-        })}>decc</button>
-      </div>
-      {data && data.map((movie) => {
-        return <div key={movie.id}>
-          <h1>{movie.title}</h1>
-
-          <img src={`${imageUrl}${movie.poster_path}`} alt="" />
-        </div>
-      })}
-
+      <h1>This is a About Page</h1>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed non placeat assumenda quidem quisquam sint labore exercitationem iure, dolores numquam!</p>
     </div>
   )
 }
