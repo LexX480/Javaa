@@ -27,6 +27,11 @@ export const userSlice = createSlice({
       state.user = state.users.find((user) => user.id === action.payload);
     },
 
+    deleteUser: (state, action) => {
+      return state.user = state.users.filter((user) => user.id != action.payload);
+
+    }
+
   },
   extraReducers: (builder) => {
     builder.addCase(reset, (state, action) => {
@@ -35,4 +40,4 @@ export const userSlice = createSlice({
   }
 
 });
-export const { addUser, singleUser, updateUser } = userSlice.actions;
+export const { addUser, singleUser, updateUser, deleteUser } = userSlice.actions;

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router";
-import { singleUser } from "../features/userSlice";
+import { singleUser, deleteUser } from "../features/userSlice";
 
 import {
   Button,
@@ -74,7 +74,9 @@ const HomePage = () => {
           >
             <span>Cancel</span>
           </Button>
-          <Button variant="gradient" color="green" onClick={handleOpen}>
+          <Button variant="gradient" color="green" onClick={() => {
+            dispatch(deleteUser(users.id));
+          }}>
             <span>Confirm</span>
           </Button>
         </DialogFooter>
