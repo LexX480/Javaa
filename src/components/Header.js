@@ -1,31 +1,79 @@
-import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import React from "react";
+
+import {
+  Navbar,
+  Collapse,
+  Typography,
+  IconButton,
+} from "@material-tailwind/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import NavList from "./navs/NavList";
+import { NavLink } from "react-router-dom";
+
 
 const Header = () => {
-
-  const [toggle, setToggle] = useState(false);
-  const change = () => {
-    setToggle(!toggle);
-  }
-
   return (
-    <div className='flex justify-between bg-black text-white px-2 py-2 items-start' >
-      <h1>CART</h1>
+    <Navbar className="px-6 m-11 sticky top-0 z-10">
+      
+      <div className="flex items-center justify-between text-blue-gray-900">
+        <Typography
+        
+          variant="h6"
+          className="mr-4 cursor-pointer py-1.5"
+        >
+          <NavLink to='/'>TMDB WEB</NavLink> 
+        </Typography>
 
-      <div className='hidden msm:flex'>
-        {toggle ? <button onClick={change}><i className='fa-solid fa-xmark'></i></button> : <button onClick={change}><i className='fa-solid fa-bars'></i></button>}
+        
+        <div className="hidden lg:block">
+          <NavList />
+        </div>
 
+
+        
+
+
+        
+        {/* <IconButton
+          variant="text"
+          className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+          // ripple={false}
+          // onClick={() => setOpenNav(!openNav)}
+        >
+          {openNav ? (
+            <XMarkIcon className="h-6 w-6" strokeWidth={2} />
+          ) : (
+            <Bars3Icon className="h-6 w-6" strokeWidth={2} />
+          )}
+        </IconButton> */}
       </div>
-
-      <nav className='space-x-3 msm:hidden'>
-
-        <NavLink to='/About'>About</NavLink>
-        <NavLink to='/Contact'>Contact</NavLink>
-        <NavLink to='/addForm'>AddForm</NavLink>
-      </nav>
-    </div>
-
+      {/* <Collapse open={openNav}>
+        <NavList />
+      </Collapse> */}
+    </Navbar>
   )
 }
-
 export default Header
+
+
+
+
+
+// export function NavbarSimple() {
+//   const [openNav, setOpenNav] = React.useState(false);
+
+//   const handleWindowResize = () =>
+//     window.innerWidth >= 960 && setOpenNav(false);
+
+//   React.useEffect(() => {
+//     window.addEventListener("resize", handleWindowResize);
+
+//     return () => {
+//       window.removeEventListener("resize", handleWindowResize);
+//     };
+//   }, []);
+
+//   return (
+    
+//   );
+// }

@@ -1,13 +1,14 @@
 import React from 'react'
 import { Route, Routes } from 'react-router'
 import HomePage from './pages/HomePg'
-import About from './pages/About'
+
 import NotFound from './pages/NotFound'
 import RootLayout from './components/RootLayout'
-import Contact from './pages/Contact'
+
 import { useSelector } from 'react-redux'
-import UserForm from './components/UserForm'
-import EditForm from './components/EditForm'
+
+import Search from './components/Search'
+import CategoryPage from './pages/CategoryPage'
 
 
 
@@ -22,12 +23,8 @@ const App = () => {
       <Routes>
         <Route element={<RootLayout />}>
           <Route path='/' element={<HomePage />} />
-          <Route path='addForm' element={<UserForm />} />
-          <Route path='editForm/:id' element={<EditForm />} />
-
-
-          <Route path='about' element={<About />} />
-          <Route path='contact' element={<Contact />} />
+          <Route path='movie/category/:category' element={<CategoryPage />} />
+          <Route path='/movie/search/:query' element={<Search />} />
           <Route path='*' element={<NotFound />} />
 
         </Route>
