@@ -76,6 +76,7 @@ const HomePage = () => {
           </Button>
           <Button variant="gradient" color="green" onClick={() => {
             dispatch(deleteUser(users.id));
+            nav(`/about/${users.id}`)
           }}>
             <span>Confirm</span>
           </Button>

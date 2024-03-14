@@ -26,7 +26,7 @@ const App = () => {
           <Route path='editForm/:id' element={<EditForm />} />
 
 
-          <Route path='about' element={<About />} />
+          <Route path='about/:id' element={<About />} />
           <Route path='contact' element={<Contact />} />
           <Route path='*' element={<NotFound />} />
 
