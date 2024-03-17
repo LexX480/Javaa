@@ -1,4 +1,4 @@
-import { getNowPlaying, imageUrl } from "../app/apis_cre";
+import { getNowPlaying } from "../app/apis_cre";
 import MovieList from "../components/MovieList";
 import Search from "../components/Search";
 import SkeletonCompo from "../components/SkeletonCompo";

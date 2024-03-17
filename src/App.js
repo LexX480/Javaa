@@ -5,17 +5,16 @@ import HomePage from './pages/HomePg'
 import NotFound from './pages/NotFound'
 import RootLayout from './components/RootLayout'
 
-import { useSelector } from 'react-redux'
-
-import Search from './components/Search'
 import CategoryPage from './pages/CategoryPage'
+import Detail from './pages/detail/Detail'
+import SearchPage from './pages/SearchPage'
 
 
 
 
 const App = () => {
 
-  const somes = useSelector((state) => state.userInfo);
+
 
   return (
     <>
@@ -24,7 +23,8 @@ const App = () => {
         <Route element={<RootLayout />}>
           <Route path='/' element={<HomePage />} />
           <Route path='movie/category/:category' element={<CategoryPage />} />
-          <Route path='/movie/search/:query' element={<Search />} />
+          <Route path='movie/detail/:id' element={<Detail />} />
+          <Route path='/movie/search/:query' element={<SearchPage />} />
           <Route path='*' element={<NotFound />} />
 
         </Route>
