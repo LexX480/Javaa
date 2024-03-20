@@ -22,8 +22,8 @@ const MovieList = ({ data, isLoading, isError, error, isFetching }) => {
         <h1 className="col-span-4"> There are no movies that matched your query.</h1> : data?.results.map((movie) => {
           return <div onClick={() => nav(`/movie/detail/${movie.id}`)} key={movie.id} className="shadow-2xl hover:scale-105 duration-300 delay-100 transition-all cursor-pointer">
             <img src={`${imageUrl}${movie.poster_path}`} alt="" />
-            <div className="p-3 space-y-1">
-              <h1 className="font-bold text-xl">{movie.title}</h1>
+            <div className="p-3 space-y-1 msm:text-ellipsis">
+              <h1 className="font-bold text-xl ">{movie.title}</h1>
               <p>{movie.overview.substring(0, 100) + '....'}</p>
             </div>
 

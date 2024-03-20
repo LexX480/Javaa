@@ -2,6 +2,7 @@ import { useParams } from "react-router";
 import { useMovieDetailQuery } from "../../features/movieApi"
 import Video from "./Video"
 import SkeletonItem from "../../components/SkeletonItem";
+import { originalImageUrl } from "../../app/apis_cre";
 
 const Detail = () => {
   const { id } = useParams();
@@ -12,7 +13,9 @@ const Detail = () => {
   }
 
   return (
-    <div className="p-10 space-y-4">
+    <div style={{ backgroundImage: `url(${originalImageUrl}${data?.backdrop_path})` }} className="  text-white h-dvh bg-cover bg-no-repeat px-2 space-y-2 msm:w-full msm:h-dvh msm:bg-no-repeat msm:bg-cover " >
+
+
       <Video id={id} />
       {data && <div>
         <h1>{data.title}</h1>

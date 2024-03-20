@@ -8,6 +8,7 @@ import RootLayout from './components/RootLayout'
 import CategoryPage from './pages/CategoryPage'
 import Detail from './pages/detail/Detail'
 import SearchPage from './pages/SearchPage'
+import MoviePage from './pages/MoviePage'
 
 
 
@@ -23,6 +24,7 @@ const App = () => {
         <Route element={<RootLayout />}>
           <Route path='/' element={<HomePage />} />
           <Route path='movie/category/:category' element={<CategoryPage />} />
+          <Route path='movie/:category/:page' element={<MoviePage />} />
           <Route path='movie/detail/:id' element={<Detail />} />
           <Route path='/movie/search/:query' element={<SearchPage />} />
           <Route path='*' element={<NotFound />} />
