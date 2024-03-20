@@ -13,7 +13,7 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <Navbar className="px-6 mb-5 ml-16  sticky top-0 z-20">
+    <Navbar className="px-6  ml-16  sticky top-0 z-20 msm:ml-1 msm:">
 
       <div className="flex items-center justify-between text-blue-gray-900">
         <Typography

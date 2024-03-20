@@ -13,7 +13,7 @@ const Detail = () => {
   }
 
   return (
-    <div style={{ backgroundImage: `url(${originalImageUrl}${data?.backdrop_path})` }} className="  text-white h-dvh bg-cover bg-no-repeat px-2 space-y-2 msm:w-full msm:h-dvh msm:bg-no-repeat msm:bg-cover " >
+    <div style={{ backgroundImage: `url(${originalImageUrl}${data?.backdrop_path})` }} className="  text-white h-dvh bg-cover bg-no-repeat px-2 space-y-2 msm:h-dvh msm:bg-center   " >
 
 
       <Video id={id} />

@@ -17,7 +17,7 @@ const Search = () => {
 
   return (
 
-    <form onSubmit={formik.handleSubmit} className="relative flex w-full max-w-[30rem]">
+    <form onSubmit={formik.handleSubmit} className="relative flex w-full max-w-[30rem] msm:mb-4">
 
       <Input
         onChange={formik.handleChange}
