@@ -16,7 +16,7 @@ const MovieList = ({ data, isLoading, isError, error, isFetching }) => {
 
   console.log(data);
   return (
-    <div className="p-4 grid grid-cols-4 gap-x-5 gap-y-6">
+    <div className="p-4 grid grid-cols-4 gap-x-5 gap-y-6 msm:grid-cols-2">
 
       {data && data?.results.length === 0 ?
         <h1 className="col-span-4"> There are no movies that matched your query.</h1> : data?.results.map((movie) => {
@@ -24,7 +24,7 @@ const MovieList = ({ data, isLoading, isError, error, isFetching }) => {
             <img src={`${imageUrl}${movie.poster_path}`} alt="" />
             <div className="p-3 space-y-1 msm:text-ellipsis overflow-hidden ...">
               <h1 className="font-bold text-xl ">{movie.title}</h1>
-              <p className="msm:truncate">{movie.overview.substring(0, 100) + '....'}</p>
+              <p className="">{movie.overview.substring(0, 100) + '....'}</p>
             </div>
 
 
