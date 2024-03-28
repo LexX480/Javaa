@@ -5,7 +5,7 @@ import Header from './Header'
 const RootLayout = () => {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <Outlet />
 
     </div>
