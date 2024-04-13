@@ -10,7 +10,7 @@ import {
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router';
 import * as Yup from 'yup';
-import { useAddProductMutation } from "./productApi";
+import { useAddProductMutation } from "../products/productApi";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
 

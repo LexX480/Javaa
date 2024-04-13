@@ -11,6 +11,11 @@ import AdminRoutes from "./ui/AdminRoutes";
 import AdminProducts from "./feature/admin/AdminProducts";
 import ProductForm from "./feature/admin/ProductForm";
 import ProductEdit from "./feature/admin/ProductEdit/ProductEdit";
+import ProductDetail from "./feature/products/ProductDetail";
+import UserRoutes from "./ui/UserRoutes";
+import CartPage from "./feature/cart/CartPage";
+import ShippingAddress from "./feature/user/ShippingAddress";
+import PlaceOrder from "./feature/user/PlaceOrder";
 
 
 
@@ -34,6 +39,15 @@ const App = () => {
         },
 
         {
+          element: <UserRoutes />,
+          children: [
+            { path: 'carts', element: <CartPage /> },
+            { path: 'shippingAddress', element: <ShippingAddress /> },
+            { path: 'placeOrder', element: <PlaceOrder /> },
+          ]
+        },
+
+        {
           element: <AdminRoutes />,
           children: [
             { path: 'admin/products', element: <AdminProducts /> },
@@ -41,16 +55,13 @@ const App = () => {
             { path: 'edit/product/:id', element: <ProductEdit /> },
           ]
         },
-
-
-
-
         {
           path: 'about', element: <About />, children: [
             { index: true, element: <Sample1 /> },
             { path: 'sample2', element: <Sample2 /> },
           ]
         },
+        { path: 'product/:id', element: <ProductDetail /> }
       ]
     },
 

@@ -1,8 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { getUser, removeUser, setUser } from "../../hooks/storage";
+import { createAction, createSlice } from "@reduxjs/toolkit";
+import { clearAll, getUser, setUser } from "../../hooks/storage";
 
 
-
+export const removeAll = createAction('app/clear');
 
 export const userSlice = createSlice({
 
@@ -15,11 +15,13 @@ export const userSlice = createSlice({
       state.user = action.payload;
       setUser(state.user);
     },
-    clearUser: (state, action) => {
+  },
+  extraReducers: (builder) => {
+    builder.addCase(removeAll, (state, action) => {
       state.user = null;
-      removeUser();
-    }
+      clearAll();
+    })
   }
 })
 
-export const { setUserToLocal, clearUser } = userSlice.actions;
+export const { setUserToLocal } = userSlice.actions;

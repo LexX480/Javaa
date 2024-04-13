@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { useGetProductsQuery } from "./productApi"
+import { useGetProductsQuery } from "../products/productApi"
 import { Avatar, Button, Card, Typography } from "@material-tailwind/react";
 import { imageUrl } from "../../contants/apis";
 const AdminProducts = () => {

@@ -10,6 +10,15 @@ export const getUser = () => {
   return user === null ? null : JSON.parse(user);
 }
 
-export const removeUser = () => {
-  localStorage.removeItem('user');
+export const setCarts = (carts) => {
+  localStorage.setItem('carts', JSON.stringify(carts));
+}
+
+export const getCarts = () => {
+  const user = localStorage.getItem('carts');
+  return user === null ? [] : JSON.parse(user);
+}
+
+export const clearAll = () => {
+  localStorage.clear();
 }

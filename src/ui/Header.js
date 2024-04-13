@@ -18,7 +18,7 @@ import {
 } from "@heroicons/react/24/solid";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { clearUser } from "../feature/auth/userSlice";
+import { removeAll } from "../feature/auth/userSlice";
 
 // admin menu component
 const adminMenuItems = [
@@ -93,7 +93,7 @@ function ProfileMenu({ user }) {
                 closeMenu();
                 switch (val) {
                   case 'out':
-                    dispatch(clearUser());
+                    dispatch(removeAll());
                     break;
                   case 'products':
                     nav('/admin/products');

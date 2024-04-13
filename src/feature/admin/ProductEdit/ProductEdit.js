@@ -1,6 +1,6 @@
 import { useParams } from 'react-router';
 import ProductEditForm from './ProductEditForm';
-import { useGetProductByIdQuery } from '../productApi';
+import { useGetProductByIdQuery } from '../../products/productApi';
 
 const ProductEdit = () => {
   const { id } = useParams();
