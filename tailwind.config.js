@@ -12,7 +12,7 @@ module.exports = withMT({
       'mxl': { 'max': '1280px' },
       'mlg': { 'max': '1024px' },
       'mmd': { 'max': '768px' },
-      'msm': { 'max': '640px' },
+      'msm': { 'max': '540px' },
     },
   },
   plugins: [],

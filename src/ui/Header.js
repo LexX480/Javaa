@@ -67,7 +67,7 @@ function ProfileMenu({ user }) {
         <Button
           variant="text"
           color="blue-gray"
-          className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto"
+          className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 "
         >
           <Avatar
             variant="circular"
@@ -134,29 +134,19 @@ function ProfileMenu({ user }) {
 
 
 const Header = () => {
-  //const [isNavOpen, setIsNavOpen] = React.useState(false);
 
-  //const toggleIsNavOpen = () => setIsNavOpen((cur) => !cur);
-
-  // React.useEffect(() => {
-  //   window.addEventListener(
-  //     "resize",
-  //     () => window.innerWidth >= 960 && setIsNavOpen(false),
-  //   );
-  // }, []);
 
   const { user } = useSelector((state) => state.userSlice);
 
 
   return (
-    <Navbar className=" w-full p-2 rounded-none ">
-      <div className="relative mx-auto flex items-center justify-between text-blue-gray-900">
+    <Navbar className="mx-auto max-w-screen p-2 rounded-none ">
+      <div className=" flex items-center justify-between text-blue-gray-900">
         <Typography
           as="a"
           href="#"
-          className="mr-4 ml-2 cursor-pointer py-1.5 font-medium"
-        >
-          Material Tailwind
+          className="mr-4 ml-2 cursor-pointer py-1.5 font-medium">
+          E-Commerce
         </Typography>
 
         <div className="flex items-center space-x-2">
