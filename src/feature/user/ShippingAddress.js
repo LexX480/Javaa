@@ -44,7 +44,9 @@ const ShippingAddress = () => {
           isEmpty: false
         };
         const response = await userUpdate({
-          body: address,
+          body: {
+            shippingAddress: address
+          },
           token: user.token
         }).unwrap();
 

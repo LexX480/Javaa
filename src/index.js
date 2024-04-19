@@ -11,9 +11,10 @@ import { ToastContainer } from 'react-toastify';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-    <App />
     <ToastContainer position="top-right"
-      autoClose={1000} />
+      autoClose={1000} pauseOnHover={false} />
+    <App />
+
   </Provider>
 
 

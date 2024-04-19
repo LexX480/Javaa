@@ -16,6 +16,8 @@ import UserRoutes from "./ui/UserRoutes";
 import CartPage from "./feature/cart/CartPage";
 import ShippingAddress from "./feature/user/ShippingAddress";
 import PlaceOrder from "./feature/user/PlaceOrder";
+import UserProfile from "./feature/user/user_profile/UserProfile";
+import OrderDetail from "./feature/user/user_profile/OrderDetail";
 
 
 
@@ -44,6 +46,7 @@ const App = () => {
             { path: 'carts', element: <CartPage /> },
             { path: 'shippingAddress', element: <ShippingAddress /> },
             { path: 'placeOrder', element: <PlaceOrder /> },
+            { path: 'userProfile', element: <UserProfile /> },
           ]
         },
 
@@ -61,7 +64,8 @@ const App = () => {
             { path: 'sample2', element: <Sample2 /> },
           ]
         },
-        { path: 'product/:id', element: <ProductDetail /> }
+        { path: 'product/:id', element: <ProductDetail /> },
+        { path: 'order/:id', element: <OrderDetail /> },
       ]
     },
 

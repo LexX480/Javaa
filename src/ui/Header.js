@@ -14,7 +14,7 @@ import {
   ChevronDownIcon,
   PowerIcon,
   ShoppingBagIcon,
-
+  BeakerIcon,
 } from "@heroicons/react/24/solid";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -67,7 +67,7 @@ function ProfileMenu({ user }) {
         <Button
           variant="text"
           color="blue-gray"
-          className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 "
+          className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto"
         >
           <Avatar
             variant="circular"
@@ -98,7 +98,11 @@ function ProfileMenu({ user }) {
                   case 'products':
                     nav('/admin/products');
                   case 'profile':
-                    console.log('profile')
+                    if (user.isAdmin) {
+
+                    } else {
+                      nav('/userProfile');
+                    }
                 }
               }}
               className={`flex items-center gap-2 rounded ${isLastItem
@@ -140,19 +144,26 @@ const Header = () => {
 
 
   return (
-    <Navbar className="mx-auto max-w-screen p-2 rounded-none ">
-      <div className=" flex items-center justify-between text-blue-gray-900">
+    <Navbar className=" w-full mx-auto p-2 rounded-none ">
+      <div className="relative mx-auto flex items-center justify-between text-blue-gray-900">
         <Typography
           as="a"
           href="#"
-          className="mr-4 ml-2 cursor-pointer py-1.5 font-medium">
-          E-Commerce
+          className="mr-4 ml-2 cursor-pointer py-1.5 font-medium"
+        >
+          Material Tailwind
         </Typography>
 
         <div className="flex items-center space-x-2">
           {!user && <NavLink to='/login'>
             <Button size="sm" variant="text">
               <span>Log In</span>
+            </Button>
+          </NavLink>}
+
+          {user && !user.isAdmin && <NavLink to='/carts'>
+            <Button size="sm" variant="text">
+              <ShoppingBagIcon className="h-6 w-6 text-blue-500" />
             </Button>
           </NavLink>}
 

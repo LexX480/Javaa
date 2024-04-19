@@ -37,7 +37,7 @@ export const cartSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(removeAll, (state, action) => {
-      state.carts = null;
+      state.carts = [];
       clearAll();
     })
   }

@@ -11,9 +11,7 @@ export const userApi = createApi({
     userUpdate: builder.mutation({
       query: (query) => ({
         url: '/users/single',
-        body: {
-          shippingAddress: query.body
-        },
+        body: query.body,
         headers: {
           Authorization: query.token
         },

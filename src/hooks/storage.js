@@ -15,8 +15,8 @@ export const setCarts = (carts) => {
 }
 
 export const getCarts = () => {
-  const user = localStorage.getItem('carts');
-  return user === null ? [] : JSON.parse(user);
+  const carts = localStorage.getItem('carts');
+  return carts === null ? [] : JSON.parse(carts);
 }
 
 export const clearAll = () => {

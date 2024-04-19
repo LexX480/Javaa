@@ -14,6 +14,7 @@ const ProductTable = ({ data }) => {
   const { data: product } = data;
 
   const { carts } = useSelector((state) => state.cartSlice);
+  const { user } = useSelector((state) => state.userSlice);
   const isExist = carts?.find((cart) => cart.product === product._id);
   const formik = useFormik({
     initialValues: {
@@ -25,7 +26,7 @@ const ProductTable = ({ data }) => {
     dispatch(setCartToLocal(
       {
         name: product.product_name,
-        qty: formik.values.qty,
+        qty: Number(formik.values.qty),
         image: product.product_image,
         price: product.product_price,
         product: product._id,
@@ -116,11 +117,11 @@ const ProductTable = ({ data }) => {
 
           </tbody>
           <tfoot className="text-center">
-            <tr>
+            {!user?.isAdmin && <tr>
               <td colSpan={2}>
                 <Button onClick={addCart}>Add To Cart</Button>
               </td>
-            </tr>
+            </tr>}
           </tfoot>
         </table>
       </Card>
