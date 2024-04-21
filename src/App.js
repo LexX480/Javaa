@@ -16,8 +16,9 @@ import UserRoutes from "./ui/UserRoutes";
 import CartPage from "./feature/cart/CartPage";
 import ShippingAddress from "./feature/user/ShippingAddress";
 import PlaceOrder from "./feature/user/PlaceOrder";
-import UserProfile from "./feature/user/user_profile/UserProfile";
-import OrderDetail from "./feature/user/user_profile/OrderDetail";
+import UserProfile from "./feature/user/UserProfile";
+import OrderDetail from "./feature/order/OrderDetail";
+import AdminProfile from "./feature/admin/AdminProfile";
 
 
 
@@ -54,6 +55,7 @@ const App = () => {
           element: <AdminRoutes />,
           children: [
             { path: 'admin/products', element: <AdminProducts /> },
+            { path: 'admin/profile', element: <AdminProfile /> },
             { path: 'add/product', element: <ProductForm /> },
             { path: 'edit/product/:id', element: <ProductEdit /> },
           ]

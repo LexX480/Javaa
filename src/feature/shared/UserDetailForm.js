@@ -7,8 +7,8 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { useFormik } from 'formik';
-import { setUserToLocal } from '../../auth/userSlice';
-import { useUserUpdateMutation } from '../userApi';
+import { setUserToLocal } from '../auth/userSlice';
+import { useUserUpdateMutation } from '../user/userApi';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 

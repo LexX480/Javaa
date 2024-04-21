@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from "@material-tailwind/react";
 import { imageUrl } from '../../contants/apis';
-import { useOrderCreateMutation } from './orderApi';
+import { useOrderCreateMutation } from '../order/orderApi';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router';
 import { clearCart } from '../cart/cartSlice';

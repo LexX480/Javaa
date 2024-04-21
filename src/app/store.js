@@ -4,7 +4,7 @@ import { userSlice } from "../feature/auth/userSlice";
 import { productApi } from "../feature/products/productApi";
 import { cartSlice } from "../feature/cart/cartSlice";
 import { userApi } from "../feature/user/userApi";
-import { orderApi } from "../feature/user/orderApi";
+import { orderApi } from "../feature/order/orderApi";
 
 
 

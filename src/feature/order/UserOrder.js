@@ -1,6 +1,5 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
-import { useOrderByUserQuery } from '../orderApi';
+
 import { Button, Card, Typography } from "@material-tailwind/react";
 import { useNavigate } from 'react-router';
 
@@ -8,12 +7,8 @@ const TABLE_HEAD = ["ProductId", "Total", "CreatedAt", ''];
 
 
 
-const UserOrder = ({ user }) => {
+const UserOrder = ({ data }) => {
 
-  const { data, error, isError, isLoading } = useOrderByUserQuery({
-    token: user.token,
-    userId: user.id
-  });
   const nav = useNavigate();
 
   return (

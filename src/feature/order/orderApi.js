@@ -8,6 +8,17 @@ export const orderApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
   endpoints: (builder) => ({
 
+    getAllOrders: builder.query({
+      query: (token) => ({
+        url: '/orders',
+        headers: {
+          Authorization: token
+        },
+        method: 'GET'
+      }),
+      providesTags: ['Order']
+    }),
+
     orderCreate: builder.mutation({
       query: (query) => ({
         url: '/orders',
@@ -47,4 +58,4 @@ export const orderApi = createApi({
   })
 });
 
-export const { useOrderCreateMutation, useOrderByUserQuery, useOrderDetailQuery } = orderApi;
+export const { useOrderCreateMutation, useOrderByUserQuery, useOrderDetailQuery, useGetAllOrdersQuery } = orderApi;

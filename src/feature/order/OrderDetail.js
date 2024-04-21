@@ -1,8 +1,8 @@
 import React from 'react'
 import { useParams } from 'react-router'
-import { useOrderDetailQuery } from '../orderApi';
+import { useOrderDetailQuery } from './orderApi';
 import { useSelector } from 'react-redux';
-import { imageUrl } from '../../../contants/apis';
+import { imageUrl } from '../../contants/apis';
 
 const OrderDetail = () => {
   const { id } = useParams();
