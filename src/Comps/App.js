@@ -34,14 +34,15 @@ const App = () => {
 
     <>
       <Header />
-      <div className='pane top-pane'>
+      <div className=' head'>
 
-        <Body language="xml" icon={`${<FontAwesomeIcon icon={faClose} />}`} displayName="HTML" value={html} onChange={setHtml} />
+        <Body language="xml"
+          displayName="HTML" value={html} onChange={setHtml} />
 
         <Body language="css" displayName="CSS" value={css} onChange={setCss} />
         <Body language="javascript" displayName="Js" value={javascript} onChange={setJavascript} />
       </div>
-      <div className="pane">
+      <div className="output">
         <iframe srcDoc={srcdoc} src="" frameborder="0" />
       </div>
 

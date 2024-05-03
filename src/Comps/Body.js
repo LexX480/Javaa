@@ -20,21 +20,21 @@ const Body = (props) => {
     onChange(value)
   }
   return (
-    <div className={`editor-container ${open ? '' : 'closed'}`} >
+    <div className={`bx ${open ? '' : 'closed'}`} >
 
-      <div className='editor-title'>
+      <div className='title'>
 
         {icon}
         {displayName}
 
-        <button type="button" className="expand-collapse-btn"
+        <button type="button" className="btn"
           onClick={() => setOpen(prevOpen => !prevOpen)}
         >
           <FontAwesomeIcon icon={open ? faCompressAlt : faClose} />
         </button>
       </div>
       <ControlledEditor onBeforeChange={handleChange} value={value}
-        className="code-mirror-wrapper"
+        className="codemirror-wrapper"
         options={{
           mode: language,
           lineWrapping: true,

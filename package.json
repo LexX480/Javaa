@@ -18,6 +18,8 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.7",
     "codemirror": "^5.65.16",
+    "codemirror-console": "^3.2.0",
+    "codemirror-console-ui": "^3.2.0",
     "formik": "^2.4.5",
     "react": "^18.2.0",
     "react-codemirror2": "^8.0.0",

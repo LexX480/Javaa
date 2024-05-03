@@ -8,18 +8,20 @@ body {
   margin: 0;
 }
 
-.top-pane {
+.head {
+  height: 50vh;
+  display: flex;
   background-color: #1D1E22;
 }
 
-.pane {
+.output {
   height: 50vh;
   display: flex;
 }
 
 
 
-.editor-container {
+.bx {
   flex-grow: 1;
   flex-basis: 0;
   display: flex;
@@ -28,16 +30,16 @@ body {
   background-color: #1D1E22;
 }
 
-.editor-container.closed {
+.bx.closed {
   flex-grow: 0;
 }
 
-.editor-container.closed .CodeMirror-scroll {
+.bx.closed .CodeMirror-scroll {
   position: absolute;
   overflow: hidden !important;
 }
 
-.expand-collapse-btn {
+.btn {
   margin-left: .5rem;
   background: none;
   border: none;
@@ -45,7 +47,7 @@ body {
   cursor: pointer;
 }
 
-.editor-title {
+.title {
   display: flex;
   justify-content: space-between;
   background-color: #1D1E22;
@@ -59,7 +61,7 @@ body {
   height: 100% !important;
 }
 
-.code-mirror-wrapper {
+.codemirror-wrapper {
   flex-grow: 1;
   border-bottom-right-radius: .5rem;
   border-bottom-left-radius: .5rem;
