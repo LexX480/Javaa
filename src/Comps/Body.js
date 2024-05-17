@@ -12,6 +12,7 @@ import { faCompressAlt, faExpandAlt, faClose, fahtml5 } from '@fortawesome/free-
 
 const Body = (props) => {
 
+  //destructured props
   const { displayName, icon, language, value, onChange } = props
 
   const [open, setOpen] = useState(true)
@@ -33,8 +34,10 @@ const Body = (props) => {
           <FontAwesomeIcon icon={open ? faCompressAlt : faClose} />
         </button>
       </div>
+
       <ControlledEditor onBeforeChange={handleChange} value={value}
         className="codemirror-wrapper"
+        //options from codemirror library
         options={{
           mode: language,
           lineWrapping: true,

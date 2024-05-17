@@ -1,14 +1,6 @@
 
-import { AppBar, Toolbar, styled } from "@mui/material"
 import { useState } from "react";
 
-const Container = styled(AppBar)`
-padding-top:4px;
-    background: black;
-    position: static;
-    border-bottom: 1px solid black;
-    height: 9vh;
-`;
 
 const Header = () => {
 

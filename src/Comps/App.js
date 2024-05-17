@@ -18,13 +18,9 @@ const App = () => {
 
   const srcdoc = `
   <html>
-  <body>
-    ${html}
-  </body>
-  <style>
-  ${css}</style>
-  <script>
-  ${javascript}</script>
+  <body> ${html}</body>
+  <style>${css}</style>
+  <script>${javascript}</script>
   </html>
   `
 
@@ -36,14 +32,16 @@ const App = () => {
       <Header />
       <div className=' head'>
 
-        <Body language="xml"
-          displayName="HTML" value={html} onChange={setHtml} />
+        <Body language="xml" displayName="HTML" value={html} onChange={setHtml} />
 
         <Body language="css" displayName="CSS" value={css} onChange={setCss} />
+
         <Body language="javascript" displayName="Js" value={javascript} onChange={setJavascript} />
+
       </div>
+
       <div className="output">
-        <iframe srcDoc={srcdoc} src="" frameborder="0" />
+        <iframe srcDoc={srcdoc} src="" frameborder="0" className='w-full h-full' />
       </div>
 
 
