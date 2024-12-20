@@ -63,6 +63,7 @@ const UserDetailForm = ({ user }) => {
           />
           <Typography variant="h6" color="blue-gray" className="-mb-3">
             Your Email
+
           </Typography>
           <Input
             size="lg"
@@ -70,7 +71,7 @@ const UserDetailForm = ({ user }) => {
             onChange={handleChange}
             value={values.email}
             placeholder="name@mail.com"
-            className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+            className=" !border-t-blue-gray -200 focus:!border-t-gray-900"
             labelProps={{
               className: "before:content-none after:content-none",
             }}
