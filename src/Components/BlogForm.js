@@ -5,10 +5,10 @@ const BlogForm = ({ initialData = {}, onSubmit }) => {
     title: initialData.title || '',
     author: initialData.author || '',
     content: initialData.content || '',
-    image: initialData.image || null, // Added image state
+    image: initialData.image || '', // Now stores either URL or base64
   });
 
-  const [previewImage, setPreviewImage] = useState(null); // For image preview
+  const [previewImage, setPreviewImage] = useState(initialData.image || null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,8 +20,9 @@ const BlogForm = ({ initialData = {}, onSubmit }) => {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setPreviewImage(reader.result);
-        setBlog(prev => ({ ...prev, image: file }));
+        const base64String = reader.result;
+        setPreviewImage(base64String);
+        setBlog(prev => ({ ...prev, image: base64String }));
       };
       reader.readAsDataURL(file);
     }
@@ -35,11 +36,12 @@ const BlogForm = ({ initialData = {}, onSubmit }) => {
   return (
     <div className="flex flex-col md:flex-row gap-6">
       {/* Image Upload & Preview Card (Left Side) */}
-      <div className="w-full md:w-1/3">
-        <div className="bg-white p-6 rounded-lg shadow-md h-full">
+      <div className="w-full">
+        <div className="bg-white p-6 rounded-lg shadow-md h-full w-full">
           <div className="mb-4">
             <label className="block text-gray-700 font-medium mb-2">Blog Cover Image</label>
             <input
+              id='image'
               type="file"
               accept="image/*"
               onChange={handleImageChange}
@@ -47,12 +49,13 @@ const BlogForm = ({ initialData = {}, onSubmit }) => {
             />
           </div>
 
-          {previewImage && (
+          {(previewImage || blog.image) && (
             <div className="mt-4 border rounded-lg overflow-hidden">
-              <div
-                className="h-64 bg-cover bg-center"
-                style={{ backgroundImage: `url(${previewImage})` }}
-              ></div>
+              <img
+                src={previewImage || blog.image}
+                alt="Preview"
+                className="w-full h-64 object-cover"
+              />
               <div className="p-3 bg-gray-50">
                 <p className="text-sm text-gray-600">Image Preview</p>
               </div>
@@ -105,7 +108,7 @@ const BlogForm = ({ initialData = {}, onSubmit }) => {
 
           <button
             type="submit"
-            className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
           >
             Submit
           </button>

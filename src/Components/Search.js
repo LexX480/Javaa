@@ -40,7 +40,7 @@ export function Search() {
         />
       </Carousel>
 
-      {/* Search Bar - Overlapping the carousel */}
+
       <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md px-4">
         <div className="relative">
           <input
@@ -48,7 +48,7 @@ export function Search() {
             placeholder="Search..."
             className="w-full py-3 px-4 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          <button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600">
+          <button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-orange-500 text-white p-2 rounded-full ">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
