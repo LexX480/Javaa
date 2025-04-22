@@ -1,5 +1,46 @@
 import { Link } from 'react-router-dom';
 import Search from './Search';
+import { useState } from 'react';
+
+const StarRating = ({ blogId }) => {
+  const [rating, setRating] = useState(
+    parseInt(localStorage.getItem(`blog_${blogId}_rating`)) || 0
+  );
+  const [hover, setHover] = useState(0);
+
+  const handleRating = (newRating) => {
+    setRating(newRating);
+    localStorage.setItem(`blog_${blogId}_rating`, newRating);
+  };
+
+  return (
+    <div className="mt-3 flex items-center">
+      <p className="text-sm text-gray-600 mr-2">Rate this:</p>
+      {[1, 2, 3, 4, 5].map((star) => (
+        <button
+          key={star}
+          onClick={() => handleRating(star)}
+          onMouseEnter={() => setHover(star)}
+          onMouseLeave={() => setHover(0)}
+          className="text-xl focus:outline-none transition-all duration-150 transform hover:scale-125"
+        >
+          <span className={
+            star <= (hover || rating)
+              ? "text-yellow-500 drop-shadow-[0_0_4px_rgba(234,179,8,0.5)]"
+              : "text-gray-300"
+          }>
+            {star <= (hover || rating) ? '★' : '☆'}
+          </span>
+        </button>
+      ))}
+      {rating > 0 && (
+        <span className="ml-2 text-sm text-gray-500 animate-pulse">
+          (Rated: {rating})
+        </span>
+      )}
+    </div>
+  );
+};
 
 const BlogList = ({ blogs, title }) => {
   return (
@@ -9,7 +50,6 @@ const BlogList = ({ blogs, title }) => {
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {blogs.map(blog => (
           <div key={blog.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-            {/* Add image preview at the top of each blog card */}
             {blog.image && (
               <div className="h-48 overflow-hidden">
                 <img
@@ -21,16 +61,29 @@ const BlogList = ({ blogs, title }) => {
             )}
             <div className="p-6">
               <Link to={`/blog/${blog.id}`}>
-                <h3 className="text-xl font-semibold mb-2 hover:text-orange-500">{blog.title}</h3>
+                <h3 className="text-xl font-semibold mb-2 hover:text-orange-500 flex justify-center">{blog.title}</h3>
               </Link>
-              <p className="text-gray-600 mb-4">Written by {blog.author}</p>
+              <div className='flex gap-3 items-center'>
+                <i className="fa-regular fa-user"></i>
+                <p>||</p>
+                <p className="text-gray-600 mb-0">Written by {blog.author}</p>
+              </div>
+              <br />
+
               <p className="text-gray-700 line-clamp-3">{blog.content}</p>
               <Link
                 to={`/blog/${blog.id}`}
-                className="inline-block mt-4 text-blue-600 hover:text-orange-500 font-medium"
+                className="inline-block mt-4 text-orange-500 hover:text-orange-500 font-medium"
               >
                 Read more...
               </Link>
+
+              <StarRating blogId={blog.id} />
+              <div className='flex justify-between'>
+                <i class="fa-solid fa-thumbs-up hover:text-blue-500 hover:scale-110 transition-all duration-200 cursor-pointer" ></i>
+                <i class="fa-solid fa-comment hover:text-green-500 hover:scale-110 transition-all duration-200 cursor-pointer"></i>
+              </div>
+
             </div>
           </div>
         ))}
