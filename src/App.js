@@ -19,7 +19,9 @@ function App() {
             <Route path="/edit/:id" element={<EditBlog />} />
           </Routes>
         </div>
-
+        <div>
+          <Footer />
+        </div>
       </div>
     </Router>
   );

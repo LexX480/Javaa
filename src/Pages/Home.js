@@ -40,7 +40,7 @@ const Home = () => {
           </div>
         )}
       </main>
-      <Footer />
+
     </div>
   );
 };
