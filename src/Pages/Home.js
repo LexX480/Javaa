@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import BlogList from '../Components/BlogList';
+import Footer from '../Components/Footer';
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
@@ -25,18 +26,21 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      {isLoading ? (
-        <div className="text-center py-8">
-          <p>Loading blogs...</p>
-        </div>
-      ) : blogs.length > 0 ? (
-        <BlogList blogs={blogs} title="All Blog Posts" />
-      ) : (
-        <div className="text-center py-8">
-          <p>No blogs found. Create one!</p>
-        </div>
-      )}
+    <div className="min-h-screen flex flex-col">
+      <main className="flex-grow">
+        {isLoading ? (
+          <div className="text-center py-8">
+            <p>Loading blogs...</p>
+          </div>
+        ) : blogs.length > 0 ? (
+          <BlogList blogs={blogs} title="All Blog Posts" />
+        ) : (
+          <div className="text-center py-8">
+            <p>No blogs found. Create one!</p>
+          </div>
+        )}
+      </main>
+      <Footer />
     </div>
   );
 };

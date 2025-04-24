@@ -4,6 +4,7 @@ import Home from './Pages/Home';
 import CreateBlog from './Pages/CreateBlog';
 import BlogDetails from './Pages/BlogDetails';
 import EditBlog from './Pages/EditBlog';
+import Footer from './Components/Footer';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/edit/:id" element={<EditBlog />} />
           </Routes>
         </div>
+
       </div>
     </Router>
   );
