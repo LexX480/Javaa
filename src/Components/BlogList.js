@@ -90,21 +90,21 @@ const BlogList = ({ blogs, title }) => {
         </div>
       </div>
 
-      {/* Standard Footer */}
-      <footer className="bg-black text-white py-6 mt-8">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+      {/* Full-width Footer */}
+      <footer className=" text-white w-full py-6">
+        <div className="w-full mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto">
             <div className="mb-4 md:mb-0">
-              <h3 className="text-xl font-bold">BlogHub</h3>
-              <p className="text-gray-400">Discover and share amazing stories</p>
+              <h3 className="text-xl text-gray-500  font-bold">BlogHub</h3>
+              <p className="text-gray-500">Discover and share amazing stories</p>
             </div>
-            <div className="flex space-x-4">
+            <div className="flex text-gray-500 space-x-4">
               <Link to="/about" className="hover:text-orange-500 transition">About Us</Link>
               <Link to="/contact" className="hover:text-orange-500 transition">Contact</Link>
               <Link to="/privacy" className="hover:text-orange-500 transition">Privacy Policy</Link>
             </div>
           </div>
-          <div className="mt-4 pt-4 border-t border-gray-700 text-center text-gray-400 text-sm">
+          <div className="mt-4 pt-4 border-t border-gray-700 text-center text-gray-400 text-sm max-w-7xl mx-auto">
             <div className="flex justify-center space-x-4 mb-2">
               <a href="#" className="hover:text-orange-500"><i className="fab fa-facebook"></i></a>
               <a href="#" className="hover:text-orange-500"><i className="fab fa-twitter"></i></a>
