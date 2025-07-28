@@ -54,7 +54,7 @@ const HomePage = () => {
                 fullWidth={true}
                 className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
               >
-                View More
+                moree
               </Button>
             </CardFooter>
           </Card>;
